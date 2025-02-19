@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-rgb: 255, 255, 255;
+}
+
+body {
+  color: rgb(var(--foreground-rgb));
+  background: rgb(var(--background-rgb));
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* ヘッダー部分のスタイル */
+.header {
+  padding: 1rem 0;
+  border-bottom: 1px solid #eaeaea;
+}
+
+/* メインコンテンツのスタイル */
+.main-content {
+  padding: 2rem 0;
+}
+
+/* SNSアイコンのスタイル */
+.sns-icons {
+  display: flex;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+
+/* ボタンのスタイル */
+.button {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background-color: #0070f3;
+  color: white;
+  border-radius: 4px;
+  text-decoration: none;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #0051a2;
+}
+
+/* 料金表示のスタイル */
+.price {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+/* 特徴セクションのスタイル */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  margin: 2rem 0;
+}
+
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #171717;
+  }
+
+  body {
+    color: var(--foreground);
+    background: var(--background);
+    font-family: Arial, Helvetica, sans-serif;
+  }
+}
+
+@layer components {
+  .hover-scale {
+    @apply transition-transform duration-300 hover:scale-105;
+  }
+
+  .hover-lift {
+    @apply transition-all duration-300 hover:-translate-y-1 hover:shadow-lg;
+  }
+
+  .button-hover {
+    @apply transition-all duration-300 hover:bg-pink-600 active:scale-95;
+  }
+
+  .input-focus {
+    @apply transition-all duration-200 focus:ring-2 focus:ring-[#ff0c86] focus:border-transparent;
+  }
+
+  .parallax-container {
+    @apply relative h-screen overflow-hidden;
+    perspective: 1000px;
+  }
+
+  .parallax-content {
+    @apply relative z-10;
+    transform-style: preserve-3d;
+  }
+
+  .parallax-image {
+    @apply absolute inset-0 w-full h-full object-cover;
+    transform: translateZ(-10px) scale(2);
+    will-change: transform;
+  }
+
+  .hero-gradient {
+    @apply absolute inset-0;
+    background: linear-gradient(135deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.3) 100%);
+  }
+
+  .hero-text {
+    @apply relative z-20;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+    transform: translateZ(50px);
+    will-change: transform;
+  }
+
+  .floating-element {
+    animation: float 6s ease-in-out infinite;
+  }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateX(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.animate-slide-in {
+  animation: slideIn 0.5s ease-out forwards;
+}
+
+.delay-200 {
+  animation-delay: 0.2s;
+}
+
+.delay-300 {
+  animation-delay: 0.3s;
+}
+
+.delay-400 {
+  animation-delay: 0.4s;
+}
