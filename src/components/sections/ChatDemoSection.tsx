@@ -5,18 +5,6 @@ export const ChatDemoSection = () => {
   return (
     <section className="py-20 bg-gradient-to-br from-gray-50 to-pink-50 text-gray-900 overflow-hidden">
       <div className="container mx-auto px-4">
-        {/* ヘッダー部分 */}
-        {/* <div className="flex flex-col items-center justify-center gap-4 mb-16 relative">
-          <div className="absolute -z-10 w-96 h-96 bg-pink-100/50 rounded-full blur-3xl"></div>
-          <MessageSquare className="w-12 h-12 text-[#ff0c86]" />
-          <h2 className="text-4xl md:text-5xl font-bold text-center">
-            コミュニケーション
-          </h2>
-          <p className="text-xl text-center text-gray-600">
-            インフルエンサーと直接やり取りができる専用メッセージ機能
-          </p>
-        </div> */}
-
         {/* デモ画像部分 */}
         <div className="max-w-7xl mx-auto">
           <div className="bg-white/80 backdrop-blur-sm rounded-2xl p-4 md:p-8 shadow-lg">
@@ -25,8 +13,7 @@ export const ChatDemoSection = () => {
               <div className="space-y-6">
                 <h3 className="text-2xl font-bold">メッセージ</h3>
                 <p className="text-lg text-gray-600">
-                  インフルエンサーと直接コミュニケーションを取れる
-                  専用メッセージ機能で、スムーズな案件進行を実現。
+                  インフルエンサーと直接コミュニケーションを取れる専用メッセージ機能で、スムーズな案件進行を実現。
                   投稿内容の確認から修正依頼まで完結できます。
                 </p>
                 <div className="space-y-4">
@@ -49,8 +36,7 @@ export const ChatDemoSection = () => {
                     <div>
                       <p className="font-medium text-gray-900">投稿内容の確認</p>
                       <p className="text-sm text-gray-600 mt-1">
-                        投稿前の内容確認や修正依頼など、
-                        やり取りから承認までをメッセージで完結
+                        投稿前の内容確認や修正依頼などやり取りから承認までをメッセージで完結
                       </p>
                     </div>
                   </div>
@@ -61,8 +47,7 @@ export const ChatDemoSection = () => {
                     <div>
                       <p className="font-medium text-gray-900">進捗状況の共有</p>
                       <p className="text-sm text-gray-600 mt-1">
-                        案件の進行状況や投稿予定日の調整など、
-                        必要な情報をリアルタイムで共有
+                        案件の進行状況や投稿予定日の調整など必要な情報をリアルタイムで共有
                       </p>
                     </div>
                   </div>

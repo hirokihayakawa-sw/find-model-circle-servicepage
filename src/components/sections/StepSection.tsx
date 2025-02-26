@@ -1,80 +1,99 @@
-import { ArrowRight, ListChecks } from 'lucide-react'
+import { ArrowRightCircle, UserPlus, ClipboardList, Share2, MessageCircle, CheckCircle } from 'lucide-react'
+
+type Step = {
+  number: string;
+  title: string;
+  subText: string;
+  icon: any;
+  isHighlight?: boolean;
+};
+
+const StepCard = ({ step, index, totalSteps }: { step: Step; index: number; totalSteps: number }) => (
+  <div className="relative flex-1 group">
+    {/* Background Gradient */}
+    <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br 
+      ${step.isHighlight 
+        ? 'from-pink-100 via-white to-pink-50' 
+        : 'from-gray-50 via-white to-gray-50'} 
+      -z-10 transform transition-transform duration-300 group-hover:scale-105`}
+    />
+    
+    {/* Content Container */}
+    <div className="p-6 flex flex-col items-center">
+      <span className="text-7xl font-black bg-gradient-to-r from-gray-200 to-gray-300 bg-clip-text text-transparent mb-4">
+        {step.number}
+      </span>
+      
+      <div className={`w-20 h-20 rounded-full flex items-center justify-center mb-4
+        ${step.isHighlight ? 'bg-pink-500' : 'bg-gray-700'} 
+        transform transition-all duration-300 group-hover:scale-110 group-hover:rotate-6`}>
+        <step.icon className="w-10 h-10 text-white" strokeWidth={1.5} />
+      </div>
+
+      <h3 className="text-lg font-bold mb-2 whitespace-nowrap">{step.title}</h3>
+      <p className={`text-sm ${step.isHighlight ? 'text-pink-500 font-bold' : 'text-gray-600'}`}>
+        {step.subText}
+      </p>
+    </div>
+
+    {/* Connecting Arrow */}
+    {index < totalSteps - 1 && (
+      <div className="hidden md:block absolute top-1/2 -right-3 transform -translate-y-1/2">
+        <div className="w-6 h-6 rotate-45 border-t-2 border-r-2 border-gray-200" />
+      </div>
+    )}
+  </div>
+);
 
 export const StepSection = () => {
-    const steps = [
-      {
-        number: 1,
-        title: "会員登録",
-        // description: "メールアドレスと基本情報を入力するだけで、すぐに利用開始できます。クレジットカード情報は後からでもOK。",
-        subText: "所要時間：約5分"
-      },
-      {
-        number: 2,
-        title: "案件の詳細登録",
-        // description: "商品・サービスの情報、希望する投稿内容、予算などを登録。テンプレートに沿って入力するだけで簡単に作成できます。",
-        subText: "募集条件や報酬も設定可能"
-      },
-      {
-        number: 3,
-        title: "インフルエンサーへ公開",
-        // description: "登録した案件を公開すると、条件に合うインフルエンサーが閲覧可能に。興味を持ったインフルエンサーから応募が届きます。",
-        subText: "最短即日から応募が届く可能性"
-      },
-      {
-        number: 4,
-        title: "インフルエンサーと直接やりとり",
-        // description: "応募のあったインフルエンサーのプロフィールを確認し、メッセージで直接コミュニケーション。",
-        subText: "スムーズな案件進行が可能に"
-      },
-      {
-        number: 5,
-        title: "投稿内容の確認と完了",
-        // description: "インフルエンサーが作成した投稿内容を確認し、必要に応じて修正依頼も可能。承認後、実際の投稿へと進みます。",
-        subText: "投稿後のレポートも確認可能"
-      }
-    ]
-  
-    return (
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="flex flex-col items-center justify-center gap-4 mb-16">
-            <div className="flex items-center justify-center gap-3">
-              <ListChecks className="w-10 h-10 text-[#ff0c86]" />
-              <h2 className="text-3xl font-bold text-center">利用ステップ</h2>
-            </div>
-          </div>
-  
-          <div className="max-w-7xl mx-auto">
-            <div className="flex flex-col md:flex-row justify-between items-stretch gap-8 md:gap-4">
-              {steps.map((step, index) => (
-                <div key={index} className="flex-1 relative">
-                  {/* Step number */}
-                  <div className="text-[#ff0c86] font-bold text-sm mb-2">
-                    STEP {step.number}
-                  </div>
-                  {/* Card */}
-                  <div className="bg-white rounded-lg p-6 shadow-md h-full flex flex-col">
-                    <h3 className="text-lg font-bold mb-3">{step.title}</h3>
-                    <p className="text-gray-600 text-sm mb-4 flex-grow">
-                      {step.description}
-                    </p>
-                    <div className="text-xs text-[#ff0c86] font-medium">
-                      {step.subText}
-                    </div>
-                  </div>
-                  {/* Arrow */}
-                  {index < steps.length - 1 && (
-                    <div className="hidden md:block absolute top-1/2 -right-6 transform -translate-y-1/2 z-10">
-                      <div className="bg-[#8BC34A] rounded-full p-1.5">
-                        <ArrowRight className="w-4 h-4 text-white" />
-                      </div>
-                    </div>
-                  )}
-                </div>
-              ))}
-            </div>
-          </div>
+  const steps: Step[] = [
+    {
+      number: "01",
+      title: "会員登録",
+      subText: "誰でも簡単登録",
+      icon: UserPlus
+    },
+    {
+      number: "02",
+      title: "案件登録",
+      subText: "シンプルな項目で簡単登録",
+      icon: ClipboardList
+    },
+    {
+      number: "03",
+      title: "インフルエンサーへ公開",
+      subText: "最短即日でマッチング開始",
+      icon: Share2,
+      isHighlight: true
+    },
+    {
+      number: "04",
+      title: "メッセージ",
+      subText: "直接やりとり",
+      icon: MessageCircle
+    },
+    {
+      number: "05",
+      title: "投稿完了",
+      subText: "投稿確認もお手軽で簡単",
+      icon: CheckCircle
+    }
+  ];
+
+  return (
+    <section className="py-20 bg-white overflow-hidden">
+      <div className="container mx-auto px-4">
+        <div className="flex items-center justify-center gap-3 mb-16">
+          <ArrowRightCircle className="w-10 h-10 text-pink-500" />
+          <h2 className="text-3xl font-bold">ご利用の流れ</h2>
         </div>
-      </section>
-    )
-  }
+
+        <div className="grid md:grid-cols-5 gap-4 max-w-7xl mx-auto">
+          {steps.map((step, index) => (
+            <StepCard key={index} step={step} index={index} totalSteps={steps.length} />
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+};

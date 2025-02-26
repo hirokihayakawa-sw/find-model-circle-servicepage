@@ -15,9 +15,10 @@ export const ContactSection = () => {
                 Find Model Circleへご関心いただき誠にありがとうございます。
               </p>
               <p className="mb-4">
-                Find Model Circleでは、<br />
+                Find Model Circleでは、<br /><br />
                 <span className="font-bold">
-                  ・概算見積もりを出してほしい<br />
+                  ・自社に合ったプランを知りたい<br /> 
+                  ・どんなインフルエンサーがいるか知りたい<br />
                   ・サービスの詳細をもっと知りたい<br />
                 </span>
               </p>
@@ -30,9 +31,9 @@ export const ContactSection = () => {
               {/* 資料請求と電話番号のセクション */}
               <div className="grid md:grid-cols-2 gap-6 mb-8">
                 <div className="bg-white rounded-lg p-6 flex items-center gap-4 shadow-sm">
-                  <div className="flex items-center gap-4">
-                    <FileText className="w-20 h-8 text-[#ff0c86]" />
-                    <div>
+                  <div className="flex flex-col items-center w-full">
+                    <FileText className="w-20 h-8 text-[#ff0c86] mb-4" />
+                    <div className="text-center">
                       <h4 className="font-bold mb-1">サービス資料請求</h4>
                       <p className="text-sm text-gray-600">サービス内容や料金体系について詳しくお伺いいたします</p>
                     </div>
@@ -40,10 +41,10 @@ export const ContactSection = () => {
                 </div>
 
                 <div className="bg-white rounded-lg p-6 flex items-center gap-4 shadow-sm">
-                  <div className="flex items-center gap-2">
-                    <Phone className="w-10 h-8 text-[#ff0c86]" />
-                    <div>
-                      <h4 className="font-bold mb-1">050-1867-1179</h4>
+                  <div className="flex flex-col items-center w-full">
+                    <Phone className="w-20 h-8 text-[#ff0c86] mb-4" />
+                    <div className="text-center">
+                      <h4 className="font-bold mb-1 text-lg">050-1867-1179</h4>
                       <p className="text-sm text-gray-600 whitespace-nowrap">（平日10:00〜19:00）</p>
                     </div>
                   </div>
@@ -88,7 +89,7 @@ export const ContactSection = () => {
                     お問い合わせ内容<span className="ml-1 text-xs text-white bg-[#ff0c86] px-2 py-0.5 rounded">必須</span>
                   </label>
                   <div className="space-y-2">
-                    {['見積もり依頼', 'サービス内容について', 'その他'].map((item) => (
+                    {['プラン詳細について', 'サービス内容について', 'その他'].map((item) => (
                       <label key={item} className="flex items-center gap-2">
                         <input
                           type="checkbox"

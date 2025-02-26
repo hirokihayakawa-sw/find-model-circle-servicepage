@@ -9,7 +9,7 @@ export const DemoSection = () => {
         <div className="flex flex-col items-center justify-center gap-4 mb-16 relative">
           <div className="absolute -z-10 w-96 h-96 bg-pink-100/50 rounded-full blur-3xl"></div>
           
-          <h2 className="text-4xl md:text-5xl font-bold text-center flex items-center gap-3">
+          <h2 className="text-3xl md:text-5xl font-bold text-center flex items-center gap-3">
             <Sparkles className="w-12 h-12 text-[#ff0c86]" />
             <span>サービス</span>
           </h2>
@@ -26,9 +26,7 @@ export const DemoSection = () => {
               <div className="space-y-6">
                 <h3 className="text-2xl font-bold">案件一覧</h3>
                 <p className="text-lg text-gray-600">
-                  案件の登録から、インフルエンサーとのやり取り、
-                  投稿の確認まで、すべての管理が1つの画面で完結。
-                  直感的なUIで効率的な運用が可能です。
+                  案件の登録から、インフルエンサーとのやり取り、投稿の確認まで、直感的なUIで効率的な運用が可能です。
                 </p>
                 <div className="space-y-4">
                   <div className="flex items-start gap-4">

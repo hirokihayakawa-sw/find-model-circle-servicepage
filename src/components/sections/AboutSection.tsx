@@ -12,8 +12,9 @@ const NetworkIllustration = () => {
   return (
     <div className="relative w-full h-[400px] flex items-center justify-center">
       {/* 装飾的な円と点 */}
-      <div className="absolute w-72 h-72 border-2 border-dashed border-gray-200 rounded-full animate-spin-slow"></div>
+      <div className="absolute w-72 h-72 border-2 border-dashed border-gray-200 rounded-full animate-spin-slow opacity-70"></div>
       <div className="absolute w-96 h-96 border border-gray-100 rounded-full"></div>
+      <div className="absolute w-[450px] h-[450px] border border-pink-100 rounded-full animate-pulse-slow"></div>
 
       {/* 接続線 */}
       <svg 
@@ -38,17 +39,25 @@ const NetworkIllustration = () => {
               y1={y1}
               x2="200"
               y2="200"
-              stroke="#e2e8f0"
+              stroke="url(#gradient-line)"
               strokeWidth="2"
               strokeDasharray="4"
               className="animate-pulse"
             />
           );
         })}
+        
+        {/* グラデーション定義 */}
+        <defs>
+          <linearGradient id="gradient-line" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stopColor="#ff0c86" stopOpacity="0.3" />
+            <stop offset="100%" stopColor="#7928ca" stopOpacity="0.3" />
+          </linearGradient>
+        </defs>
       </svg>
 
       {/* 中央のノード */}
-      <div className="absolute z-20 w-16 h-16 bg-[#ff0c86] rounded-full flex items-center justify-center shadow-lg">
+      <div className="absolute z-20 w-16 h-16 bg-gradient-to-r from-[#ff0c86] to-[#ff8c00] rounded-full flex items-center justify-center shadow-lg">
         <div className="absolute inset-0 bg-[#ff0c86] rounded-full animate-ping-slow opacity-75"></div>
         <Building2 className="w-8 h-8 text-white relative z-10" />
       </div>
@@ -56,6 +65,12 @@ const NetworkIllustration = () => {
       {/* サテライトノード - ホバーとパルスエフェクト追加 */}
       {[...Array(8)].map((_, i) => {
         const angle = i * 45;
+        const colors = [
+          'bg-gradient-to-r from-blue-500 to-cyan-400',
+          'bg-gradient-to-r from-yellow-400 to-orange-500',
+          'bg-gradient-to-r from-green-500 to-emerald-400',
+          'bg-gradient-to-r from-purple-500 to-indigo-500'
+        ];
         return (
           <div
             key={i}
@@ -67,8 +82,8 @@ const NetworkIllustration = () => {
             }}
           >
             <div className={`w-12 h-12 rounded-full flex items-center justify-center
-              ${['bg-blue-500', 'bg-yellow-400', 'bg-green-500', 'bg-orange-500'][i % 4]}
-              animate-pulse shadow-md group-hover:shadow-xl transition-shadow`}
+              ${colors[i % 4]}
+              shadow-md group-hover:shadow-xl transition-shadow`}
             >
               <Users className="w-6 h-6 text-white transform group-hover:scale-110 transition-transform" />
             </div>
@@ -82,7 +97,7 @@ const NetworkIllustration = () => {
         return (
           <div
             key={`dot-${i}`}
-            className="absolute w-2 h-2 rounded-full bg-gray-200 animate-pulse"
+            className="absolute w-2 h-2 rounded-full bg-pink-200 animate-pulse"
             style={{
               transform: `rotate(${angle}deg) translateX(192px)`,
               transformOrigin: 'center center'
@@ -96,50 +111,72 @@ const NetworkIllustration = () => {
 
 export const AboutSection = () => {
   return (
-    <section className="py-20 bg-gray-50">
+    <section className="py-20 bg-gradient-to-b from-white to-gray-50">
       <div className="container mx-auto px-4">
         <div className="relative flex items-center justify-center gap-3 mb-16">
+          <div className="absolute -z-10 w-64 h-64 bg-gradient-to-r from-pink-100 to-purple-100 rounded-full blur-3xl opacity-60"></div>
           <Sparkles className="w-10 h-10 text-[#ff0c86] animate-pulse" />
           <h2 className="text-4xl font-bold text-center">Find Model Circleとは？</h2>
-          <div className="absolute -z-10 w-32 h-32 bg-pink-100 rounded-full blur-3xl opacity-60"></div>
         </div>
 
         {/* 説明文とネットワーク図を横並びに */}
         <div className="max-w-7xl mx-auto mb-20">
-          <div className="relative p-8 rounded-3xl bg-white shadow-lg">
-            <div className="absolute inset-0 bg-gradient-to-r from-pink-50 to-blue-50 rounded-3xl"></div>
-            <div className="grid md:grid-cols-2 gap-12 items-center">
+          <div className="relative p-8 md:p-12 rounded-3xl bg-white shadow-xl backdrop-blur-sm">
+            <div className="absolute inset-0 bg-gradient-to-br from-pink-50 via-white to-blue-50 rounded-3xl"></div>
+            <div className="absolute -top-5 -right-5 w-24 h-24 bg-pink-200 rounded-full blur-3xl opacity-30"></div>
+            <div className="absolute -bottom-5 -left-5 w-24 h-24 bg-blue-200 rounded-full blur-3xl opacity-30"></div>
+            
+            <div className="grid md:grid-cols-2 gap-12 items-center relative z-10">
               {/* 左側：説明文 */}
               <div className="relative">
                 <div className="absolute -z-10 left-0 top-0 w-32 h-32 bg-pink-50 rounded-full blur-3xl"></div>
                 <div className="space-y-8">
                   {/* メインコピー */}
-                  <h3 className="text-3xl font-bold text-[#ff0c86] leading-relaxed">
-                    企業とインフルエンサーをつなぐ
-                    <br />
-                    マッチングプラットフォーム
+                  <h3 className="text-3xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-[#ff0c86] to-[#ff8c00] leading-relaxed">
+                    企業とインフルエンサーをつなぐ<br />マッチングプラットフォーム
                   </h3>
                   
                   {/* サブコピーと説明文 */}
                   <div className="space-y-6">
-                    <p className="text-xl leading-relaxed text-gray-700">
-                      案件を無制限に掲載可能でインフルエンサーとの
+                    <div className="space-y-3">
+                      <div className="flex items-center space-x-3 bg-gradient-to-r from-pink-50 to-white p-3 rounded-xl">
+                        <div className="w-8 h-8 rounded-full bg-[#ff0c86] flex items-center justify-center">
+                          <span className="text-white font-bold">1</span>
+                        </div>
+                        <p className="text-lg font-medium text-gray-800">月額5万円で案件出し放題</p>
+                      </div>
+                      
+                      <div className="flex items-center space-x-3 bg-gradient-to-r from-pink-50 to-white p-3 rounded-xl">
+                        <div className="w-8 h-8 rounded-full bg-[#ff0c86] flex items-center justify-center">
+                          <span className="text-white font-bold">2</span>
+                        </div>
+                        <p className="text-lg font-medium text-gray-800">インフルエンサーと何人とつながっても定額</p>
+                      </div>
+                      
+                      <div className="flex items-center space-x-3 bg-gradient-to-r from-pink-50 to-white p-3 rounded-xl">
+                        <div className="w-8 h-8 rounded-full bg-[#ff0c86] flex items-center justify-center">
+                          <span className="text-white font-bold">3</span>
+                        </div>
+                        <p className="text-lg font-medium text-gray-800">直接メッセージでやりとり可能</p>
+                      </div>
+                    </div>
+                    
+                    <p className="text-lg leading-relaxed text-gray-700 pl-4 border-l-4 border-[#ff0c86]">
+                      本人確認済みのインフルエンサーが商品を体験し、SNS投稿で口コミ拡散。
                       <br />
-                      メッセージのやり取りも直接行えるため
-                      <br />
-                      <span className="font-medium text-[#ff0c86]">
-                        スピーディーで柔軟な案件進行
-                      </span>
-                      が実現できます。
+                      シンプルな仕組みで、<span className="font-bold text-[#ff0c86]">ブランド価値向上・認知拡大</span>を目指します。
                     </p>
                   </div>
                   
                   {/* SNSアイコン部分 */}
                   <div className="relative pt-6">
-                    <p className="text-lg font-medium text-gray-600 mb-4">対応SNS</p>
-                    <div className="flex gap-8">
+                    <p className="text-lg font-medium text-gray-700 mb-4 flex items-center">
+                      <span className="w-2 h-8 bg-[#ff0c86] rounded-full mr-3"></span>
+                      対応SNS
+                    </p>
+                    <div className="flex gap-8 items-center">
                       {snsIcons.map(({ id, icon, width, height }) => (
-                        <div key={id} className="flex items-center">
+                        <div key={id} className="flex items-center hover:scale-105 transition-transform">
                           <Image 
                             src={`/images/${icon}`} 
                             alt={id} 
@@ -158,36 +195,6 @@ export const AboutSection = () => {
               <div className="relative">
                 <NetworkIllustration />
               </div>
-            </div>
-          </div>
-        </div>
-
-        {/* 3カラム特徴部分 */}
-        <div className="max-w-6xl mx-auto">
-          <div className="grid md:grid-cols-3 gap-8">
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-pink-50 rounded-full blur-3xl -z-10 opacity-60"></div>
-              <Users className="h-16 w-16 text-[#ff0c86] mx-auto mb-6" />
-              <h3 className="text-xl font-bold mb-4">本人確認済みの<br />インフルエンサー</h3>
-              <p className="text-gray-600">
-                インフルエンサーは本人確認認証済みで、安心できるユーザーのみが利用可能
-              </p>
-            </div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-pink-50 rounded-full blur-3xl -z-10 opacity-60"></div>
-              <MessageCircle className="h-16 w-16 text-[#ff0c86] mx-auto mb-6" />
-              <h3 className="text-xl font-bold mb-4">インフルエンサーと<br />直接やりとり</h3>
-              <p className="text-gray-600">
-                インフルエンサーと直接やり取りができて、気軽にコミュニケーションが取れます
-              </p>
-            </div>
-            <div className="bg-white rounded-2xl p-8 shadow-lg hover:shadow-xl transition-all transform hover:-translate-y-1 relative overflow-hidden">
-              <div className="absolute top-0 right-0 w-32 h-32 bg-pink-50 rounded-full blur-3xl -z-10 opacity-60"></div>
-              <Gift className="h-16 w-16 text-[#ff0c86] mx-auto mb-6" />
-              <h3 className="text-xl font-bold mb-4">柔軟な案件対応</h3>
-              <p className="text-gray-600">
-                掲載案件数の上限なし、ギフティングのみでの依頼も可能！企業様の要望に柔軟に対応します
-              </p>
             </div>
           </div>
         </div>
