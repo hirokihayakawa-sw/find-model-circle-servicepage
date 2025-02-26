@@ -131,8 +131,12 @@ body {
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
 }
 
 @keyframes fadeIn {
@@ -176,3 +180,150 @@ body {
 .delay-400 {
   animation-delay: 0.4s;
 }
+
+.hero-section {
+  background-color: #FF1493; /* ピンク色の背景 */
+  padding: 4rem 1rem;
+  text-align: center;
+  color: white;
+}
+
+.hero-title {
+  font-size: 2.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  line-height: 1.4;
+}
+
+.hero-subtitle {
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.price-section {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.25rem;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.primary-button {
+  background-color: white;
+  color: #FF1493;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.outline-button {
+  background-color: transparent;
+  color: white;
+  padding: 0.75rem 2rem;
+  border-radius: 9999px;
+  border: 2px solid white;
+  font-weight: bold;
+  transition: all 0.3s;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: white;
+}
+
+.nav-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.login-button {
+  background-color: #FF1493;
+  color: white;
+  padding: 0.5rem 2rem;
+  border-radius: 9999px;
+  font-weight: bold;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
+  height: 40px;  /* もとのサイズに合わせて調整してください */
+  width: auto;
+}
+
+/* ヘッダーのリンクスタイルも追加 */
+.nav-links a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+}
+
+.nav-links a:hover {
+  color: #FF1493;
+}
+
+.hero-image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url('/path/to/your/image.jpg'); /* 背景画像 */
+  background-size: cover;
+  background-position: center;
+  transition: transform 0.3s ease-out;
+}
+
+.hero-text {
+  transition: transform 0.3s ease-out;
+}
+
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 30s linear infinite;
+}
+
+@keyframes spin-reverse {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.animate-spin-reverse {
+  animation: spin-reverse 30s linear infinite;
+}
+
+/* 各ノードの異なるアニメーションタイミング */
+.animate-float-1 { animation: float 3s ease-in-out infinite; }
+.animate-float-2 { animation: float 3s ease-in-out infinite 0.4s; }
+.animate-float-3 { animation: float 3s ease-in-out infinite 0.8s; }
+.animate-float-4 { animation: float 3s ease-in-out infinite 1.2s; }
+.animate-float-5 { animation: float 3s ease-in-out infinite 1.6s; }
+.animate-float-6 { animation: float 3s ease-in-out infinite 2s; }
+.animate-float-7 { animation: float 3s ease-in-out infinite 2.4s; }
+.animate-float-8 { animation: float 3s ease-in-out infinite 2.8s; }
