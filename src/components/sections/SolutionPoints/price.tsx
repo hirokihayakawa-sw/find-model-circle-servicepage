@@ -38,7 +38,7 @@ export const price = {
             
             <div className="px-6 py-6 text-center">
               <div className="text-5xl font-bold text-gray-800 mb-1 tracking-tight">
-                25<span className="text-2xl">万円〜</span>
+                50<span className="text-2xl">万円〜</span>
               </div>
               <p className="text-xs text-red-500 mt-1">※フォロワー数に応じて増加</p>
             </div>
@@ -48,7 +48,7 @@ export const price = {
               <ul className="space-y-3">
                 <li className="flex items-center">
                   <div className="w-3 h-3 rounded-full bg-gray-300 mr-2 flex-shrink-0"></div>
-                  <span className="text-sm text-gray-700">フォロワー単価: 1円</span>
+                  <span className="text-sm text-gray-700">フォロワー単価: 2円</span>
                 </li>
                 <li className="flex items-center">
                   <div className="w-3 h-3 rounded-full bg-gray-300 mr-2 flex-shrink-0"></div>

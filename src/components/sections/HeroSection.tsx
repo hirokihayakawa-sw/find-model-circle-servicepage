@@ -36,7 +36,9 @@ export const HeroSection = () => {
         {typeof value === 'number' ? (
           <>
             <span className={`${isMobile ? 'text-xl' : 'text-3xl'} font-bold`}>{value}</span>
-            <span className={`${isMobile ? 'text-[8px]' : 'text-sm'} ml-0.5`}>円</span>
+            <span className={`${isMobile ? 'text-[8px]' : 'text-sm'} ml-0.5`}>
+              {title === "初期費用" ? "円" : "万円"}
+            </span>
           </>
         ) : (
           <span className={`${isMobile ? 'text-xs' : 'text-xl'} font-bold`}>{value}</span>
